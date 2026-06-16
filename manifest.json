@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "update_url": "https://pamoteam.s3.ap-southeast-1.amazonaws.com/dl/dora/branch/updates.xml",
+  "name": "Dora Etsy Shop Messages ENVIRONMENT",
+  "version": "1.0.1",
+  "description": "Dora Etsy Shop Messages ENVIRONMENT",
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "storage",
+    "alarms"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [{
+    "resources": [
+      "inject.js", 
+      "configs/env.json", 
+      "modal.css",
+      "icons/icon16.png",
+      "icons/icon48.png"
+    ],
+    "matches": ["<all_urls>"]
+  }],
+  "content_scripts": [
+    {
+      "matches": ["https://www.etsy.com/*"],
+      "css": ["modal.css"],
+      "js": [
+        "libs/backend-api.js",
+        "libs/log.js",
+        "libs/etsy-api.js",
+        "libs/etsy-message.js",
+        "libs/etsy-tracking.js",
+        "libs/ably.min-1.js",
+        "content.js",
+        "libs/ably.js"
+      ],
+      "runAt": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

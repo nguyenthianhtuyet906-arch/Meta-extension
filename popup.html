@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dora Controls</title>
+  <link rel="stylesheet" href="modal.css">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 12px; width: 260px; }
+    h1 { font-size: 16px; margin: 0 0 8px; color: #333; }
+    .status { margin: 8px 0 14px; color: #444; }
+    button { display: block; width: 100%; padding: 8px 10px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
+    button.primary { background: #F56400; color: white; border-color: #F56400; }
+    button.danger { background: #eee; color: #333; }
+    .small { font-size: 13px; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Dora Tab</h1>
+  <div class="status">Current tab: <span id="doraStatus">checking…</span></div>
+  <div class="status">URL: <span id="currentUrl">loading…</span></div>
+
+  <button id="setDoraBtn" class="primary">Set as Dora Tab</button>
+  <button id="offDoraBtn" class="danger">Off Dora Tab</button>
+
+  <hr />
+  <h1 style="font-size:14px; margin-top:8px;">Dora Tracking</h1>
+  <div class="status">Tracking: <span id="doraTrackingStatus">checking…</span></div>
+  <button id="setDoraTrackingBtn" class="primary">Set as Dora Tracking</button>
+  <button id="offDoraTrackingBtn" class="danger">Off Dora Tracking</button>
+
+  <hr />
+  <h1 style="font-size:14px; margin-top:8px;">Sync Controls</h1>
+  <button id="syncNowBtn" class="primary">Sync Now</button>
+
+  <label for="scheduleMode" class="small">Schedule</label>
+  <select id="scheduleMode">
+    <option value="off">Off (manual)</option>
+    <option value="interval">Every N hours</option>
+    <option value="times">At specific times (HH:MM)</option>
+  </select>
+
+  <div id="intervalRow" style="display:none; margin-top:6px;">
+    <input id="intervalHours" type="number" min="1" value="1" style="width:60px;"> hours
+  </div>
+
+  <div id="timesRow" style="display:none; margin-top:6px;">
+    <input id="timesInput" type="text" placeholder="05:00,12:00,15:00" style="width:100%;">
+    <div class="small">Comma separated, 24h format</div>
+  </div>
+
+  <button id="saveScheduleBtn">Save Schedule</button>
+  <button id="clearScheduleBtn" class="danger">Clear Schedule</button>
+
+  <div class="small">These actions affect the active tab in the current window.</div>
+
+  <script src="popup.js"></script>
+</body>
+

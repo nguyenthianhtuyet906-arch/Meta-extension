@@ -1,0 +1,51 @@
+.dora-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+  }
+  
+  .dora-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    display: none;
+  }
+  
+  .dora-modal h2 {
+    color: #F56400;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .dora-modal p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .dora-disable-interactions {
+    pointer-events: none !important;
+  }
+  
+  .dora-enable-modal {
+    pointer-events: auto !important;
+    cursor: default;
+  }
+  
+  .dora-active {
+    display: block;
+  }
